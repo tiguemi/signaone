@@ -1,0 +1,125 @@
+<section id="devis" class="quote">
+  <div class="container">
+    <div class="quote-content">
+      <div class="quote-info">
+        <h2 class="section-title">Demandez votre devis gratuit</h2>
+        <p class="section-description">
+          Décrivez-nous votre projet et recevez une estimation personnalisée sous 24h
+        </p>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-icon">⚡</div>
+            <h3>Réponse rapide</h3>
+            <p>Devis sous 24h ouvrées</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">✓</div>
+            <h3>Sans engagement</h3>
+            <p>Devis gratuit et sans obligation</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🎯</div>
+            <h3>Sur mesure</h3>
+            <p>Solutions adaptées à vos besoins</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-form-wrapper">
+        <form class="quote-form" (ngSubmit)="onSubmit()" #quoteForm="ngForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="formData.name"
+                required
+                placeholder="Votre nom"
+              >
+            </div>
+            <div class="form-group">
+              <label for="company">Entreprise</label>
+              <input
+                type="text"
+                id="company"
+                name="company"
+                [(ngModel)]="formData.company"
+                placeholder="Nom de votre entreprise"
+              >
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="formData.email"
+                required
+                placeholder="votre@email.com"
+              >
+            </div>
+            <div class="form-group">
+              <label for="phone">Téléphone *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                [(ngModel)]="formData.phone"
+                required
+                placeholder="06 12 34 56 78"
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Type de service</label>
+            <select
+              id="service"
+              name="service"
+              [(ngModel)]="formData.service"
+            >
+              <option value="">Sélectionnez un service</option>
+              <option value="enseigne-lumineuse">Enseigne lumineuse</option>
+              <option value="signaletique-interieure">Signalétique intérieure</option>
+              <option value="habillage-facade">Habillage de façade</option>
+              <option value="marquage-vehicule">Marquage véhicule</option>
+              <option value="panneau-publicitaire">Panneau publicitaire</option>
+              <option value="lettrage-decoupe">Lettrage découpé</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Décrivez votre projet *</label>
+            <textarea
+              id="message"
+              name="message"
+              [(ngModel)]="formData.message"
+              required
+              rows="5"
+              placeholder="Parlez-nous de votre projet..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-btn"
+            [disabled]="!quoteForm.form.valid || isSubmitting"
+          >
+            <span *ngIf="!isSubmitting && !submitSuccess">Envoyer ma demande</span>
+            <span *ngIf="isSubmitting">Envoi en cours...</span>
+            <span *ngIf="submitSuccess">✓ Demande envoyée !</span>
+          </button>
+
+          <p class="form-note">* Champs obligatoires</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

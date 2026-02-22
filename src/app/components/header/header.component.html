@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <a href="#accueil" class="logo" (click)="closeMenu()">
+        <img src="/assets/signa-one-logo_Plan-de-travail-1-copie.webp" alt="Signa One">
+      </a>
+
+      <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" [class.active]="isMenuOpen">
+        <a href="#accueil" class="nav-link" (click)="closeMenu()">Accueil</a>
+        <a href="#enseigne" class="nav-link" (click)="closeMenu()">Enseigne</a>
+        <a href="#devis" class="nav-link" (click)="closeMenu()">Devis</a>
+        <a href="#contact" class="nav-link" (click)="closeMenu()">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>

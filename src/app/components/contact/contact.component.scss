@@ -1,0 +1,162 @@
+.contact {
+  padding: 8rem 0;
+  background: white;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 1rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  margin: 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(227, 30, 36, 0.15);
+
+    .contact-icon {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.contact-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.contact-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 1rem;
+}
+
+.contact-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+
+  a {
+    color: #E31E24;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.footer {
+  background: #1a1a1a;
+  color: white;
+  padding: 4rem 0 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+.footer-logo {
+  img {
+    height: 50px;
+    width: auto;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1);
+  }
+
+  p {
+    color: #999;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.footer-links,
+.footer-info {
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    color: white;
+  }
+
+  a,
+  p {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #E31E24;
+    }
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+
+    &:hover {
+      color: #999;
+    }
+  }
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  text-align: center;
+
+  p {
+    color: #666;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+}
