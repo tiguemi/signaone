@@ -6,11 +6,11 @@
       </a>
 
       <nav class="nav" [class.active]="isMenuOpen">
-        <a href="#accueil" class="nav-link" (click)="closeMenu()">Accueil</a>
-        <a href="#enseigne" class="nav-link" (click)="closeMenu()">Enseigne</a>
-        <a href="#signaletique" class="nav-link" (click)="closeMenu()">Signalétique</a>
-        <a href="#devis" class="nav-link" (click)="closeMenu()">Devis</a>
-        <a href="#contact" class="nav-link" (click)="closeMenu()">Contact</a>
+        <a href="#accueil" class="nav-link" [class.active]="activeSection === 'accueil'" (click)="navigateTo('accueil')">Accueil</a>
+        <a href="#enseigne" class="nav-link" [class.active]="activeSection === 'enseigne'" (click)="navigateTo('enseigne')">Enseigne</a>
+        <a href="#signaletique" class="nav-link" [class.active]="activeSection === 'signaletique'" (click)="navigateTo('signaletique')">Signalétique</a>
+        <a href="#devis" class="nav-link" [class.active]="activeSection === 'devis'" (click)="navigateTo('devis')">Devis</a>
+        <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="navigateTo('contact')">Contact</a>
       </nav>
 
       <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
