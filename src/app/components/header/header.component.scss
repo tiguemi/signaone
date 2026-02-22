@@ -20,13 +20,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 100px;
+  position: relative;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 100px;
 
   img {
     height: 100%;
@@ -39,24 +40,26 @@
   display: flex;
   gap: 3rem;
   align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 
   @media (max-width: 768px) {
     position: fixed;
-    top: 80px;
+    top: 100px;
     left: 0;
     right: 0;
+    transform: none;
     background: white;
     flex-direction: column;
     gap: 0;
     padding: 2rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
 
     &.active {
-      transform: translateY(0);
       opacity: 1;
       visibility: visible;
     }
