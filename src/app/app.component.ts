@@ -4,6 +4,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ServicesComponent } from './components/services/services.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { SignaletiqueComponent } from './components/signaletique/signaletique.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
     HeaderComponent,
     HeroComponent,
     ServicesComponent,
+    SignaletiqueComponent,
     QuoteComponent,
     ContactComponent
   ],
