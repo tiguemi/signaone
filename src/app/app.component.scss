@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #102032;
+}
+
+.tracking {
+  letter-spacing: 0.08em;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
