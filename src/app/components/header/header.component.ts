@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -9,17 +10,23 @@ import { RouterModule } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   isMenuOpen = false;
   activeSection = 'accueil';
+  isHome = true;
 
   private sections = ['accueil', 'enseigne', 'signaletique', 'realisations', 'devis', 'contact'];
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
+    this.isHome = this.router.url === '/';
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e: any) => {
+      this.isHome = e.urlAfterRedirects === '/';
+      this.closeMenu();
+    });
     this.updateActiveSection();
   }
-
-  ngOnDestroy() {}
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
@@ -34,6 +41,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.closeMenu();
   }
 
+  goHome() {
+    this.router.navigate(['/']);
+    this.closeMenu();
+  }
+
   @HostListener('window:scroll')
   onScroll() {
     this.updateActiveSection();
@@ -41,7 +53,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private updateActiveSection() {
     const scrollY = window.scrollY + 120;
-
     for (let i = this.sections.length - 1; i >= 0; i--) {
       const el = document.getElementById(this.sections[i]);
       if (el && el.offsetTop <= scrollY) {
@@ -49,7 +60,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
         return;
       }
     }
-
     this.activeSection = 'accueil';
   }
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../components/header/header.component';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { ServicesComponent } from '../../components/services/services.component';
 import { QuoteComponent } from '../../components/quote/quote.component';
@@ -11,7 +10,6 @@ import { PortfolioComponent } from '../../components/portfolio/portfolio.compone
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent,
     HeroComponent,
     ServicesComponent,
     SignaletiqueComponent,
@@ -20,7 +18,6 @@ import { PortfolioComponent } from '../../components/portfolio/portfolio.compone
     ContactComponent
   ],
   template: `
-    <app-header></app-header>
     <app-hero></app-hero>
     <app-services></app-services>
     <app-signaletique></app-signaletique>

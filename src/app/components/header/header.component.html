@@ -1,17 +1,27 @@
 <header class="header">
   <div class="container">
     <div class="header-content">
-      <a href="#accueil" class="logo" (click)="closeMenu()">
+      <a class="logo" (click)="goHome()" style="cursor:pointer">
         <img src="Logo_elegant_de_Signa_One.png" alt="Signa One">
       </a>
 
       <nav class="nav" [class.active]="isMenuOpen">
-        <a href="#accueil" class="nav-link" [class.active]="activeSection === 'accueil'" (click)="navigateTo('accueil')">Accueil</a>
-        <a href="#enseigne" class="nav-link" [class.active]="activeSection === 'enseigne'" (click)="navigateTo('enseigne')">Enseigne</a>
-        <a href="#signaletique" class="nav-link" [class.active]="activeSection === 'signaletique'" (click)="navigateTo('signaletique')">Signalétique</a>
-        <a href="#realisations" class="nav-link" [class.active]="activeSection === 'realisations'" (click)="navigateTo('realisations')">Réalisations</a>
-        <a href="#devis" class="nav-link" [class.active]="activeSection === 'devis'" (click)="navigateTo('devis')">Devis</a>
-        <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="navigateTo('contact')">Contact</a>
+        <ng-container *ngIf="isHome; else internalNav">
+          <a href="#accueil" class="nav-link" [class.active]="activeSection === 'accueil'" (click)="navigateTo('accueil')">Accueil</a>
+          <a href="#enseigne" class="nav-link" [class.active]="activeSection === 'enseigne'" (click)="navigateTo('enseigne')">Enseigne</a>
+          <a href="#signaletique" class="nav-link" [class.active]="activeSection === 'signaletique'" (click)="navigateTo('signaletique')">Signalétique</a>
+          <a href="#realisations" class="nav-link" [class.active]="activeSection === 'realisations'" (click)="navigateTo('realisations')">Réalisations</a>
+          <a href="#devis" class="nav-link" [class.active]="activeSection === 'devis'" (click)="navigateTo('devis')">Devis</a>
+          <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="navigateTo('contact')">Contact</a>
+        </ng-container>
+        <ng-template #internalNav>
+          <a class="nav-link" (click)="goHome()" style="cursor:pointer">Accueil</a>
+          <a routerLink="/" fragment="enseigne" class="nav-link" (click)="closeMenu()">Enseigne</a>
+          <a routerLink="/" fragment="signaletique" class="nav-link" (click)="closeMenu()">Signalétique</a>
+          <a routerLink="/realisations" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Réalisations</a>
+          <a routerLink="/" fragment="devis" class="nav-link" (click)="closeMenu()">Devis</a>
+          <a routerLink="/" fragment="contact" class="nav-link" (click)="closeMenu()">Contact</a>
+        </ng-template>
       </nav>
 
       <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
