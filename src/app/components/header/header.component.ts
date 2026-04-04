@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   activeSection = 'accueil';
 
   private sections = ['accueil', 'enseigne', 'signaletique', 'devis', 'contact'];
+  private sections = ['accueil', 'enseigne', 'signaletique', 'realisations', 'devis', 'contact'];
 
   ngOnInit() {
     this.updateActiveSection();

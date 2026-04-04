@@ -5,6 +5,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { SignaletiqueComponent } from './components/signaletique/signaletique.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { SignaletiqueComponent } from './components/signaletique/signaletique.co
     HeroComponent,
     ServicesComponent,
     SignaletiqueComponent,
+    PortfolioComponent,
     QuoteComponent,
     ContactComponent
   ],

@@ -1,0 +1,55 @@
+<section id="realisations" class="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Nos réalisations</span>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-subtitle">Découvrez nos dernières créations et laissez-vous inspirer par notre savoir-faire</p>
+    </div>
+
+    <div class="filter-tabs">
+      <button 
+        *ngFor="let category of categories"
+        class="filter-btn"
+        [class.active]="selectedCategory() === category.id"
+        (click)="selectCategory(category.id)"
+      >
+        <span class="filter-icon">{{ category.icon }}</span>
+        {{ category.name }}
+      </button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div 
+        class="portfolio-item"
+        *ngFor="let item of filteredItems(); trackBy: trackByFn"
+        [attr.data-category]="item.category"
+      >
+        <div class="portfolio-image">
+          <img [src]="item.image" [alt]="item.title" loading="lazy">
+          <div class="portfolio-overlay">
+            <div class="portfolio-content">
+              <h3 class="portfolio-title">{{ item.title }}</h3>
+              <p class="portfolio-description">{{ item.description }}</p>
+              <button class="view-btn">Voir le projet</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-stats">
+      <div class="stat-item">
+        <div class="stat-number">{{ portfolioItems.length }}+</div>
+        <div class="stat-label">Projets réalisés</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Clients satisfaits</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Années d'expérience</div>
+      </div>
+    </div>
+  </div>
+</section>
