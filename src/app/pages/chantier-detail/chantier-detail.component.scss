@@ -1,0 +1,242 @@
+.detail-page {
+  min-height: 100vh;
+  background: #f8f9fa;
+}
+
+.detail-header {
+  background: #1a1a1a;
+  padding: 6rem 2rem 3rem;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+
+  &:hover {
+    border-color: #E31E24;
+    background: rgba(227, 30, 36, 0.1);
+  }
+}
+
+.back-icon {
+  font-size: 1.1rem;
+}
+
+.header-info {
+  color: white;
+}
+
+.chantier-tag {
+  display: inline-block;
+  background: rgba(227, 30, 36, 0.2);
+  color: #E31E24;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.chantier-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  line-height: 1.1;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.chantier-date {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 0.25rem;
+}
+
+.photo-count {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.detail-gallery {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #e0e0e0;
+
+  &:hover {
+    .gallery-overlay {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.05);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.zoom-icon {
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #333;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.lightbox-counter {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(227, 30, 36, 0.7);
+  }
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(227, 30, 36, 0.7);
+  }
+}
+
+.lightbox-prev {
+  left: 1.5rem;
+}
+
+.lightbox-next {
+  right: 1.5rem;
+}

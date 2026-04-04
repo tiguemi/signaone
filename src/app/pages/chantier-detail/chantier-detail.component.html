@@ -1,0 +1,51 @@
+<div class="detail-page" *ngIf="chantier(); else notFound">
+  <div class="detail-header">
+    <div class="header-inner">
+      <button class="back-btn" (click)="goBack()">
+        <span class="back-icon">&#8592;</span>
+        Retour au portfolio
+      </button>
+      <div class="header-info">
+        <span class="chantier-tag">Réalisation</span>
+        <h1 class="chantier-title">{{ chantier()!.title }}</h1>
+        <p class="chantier-date">{{ chantier()!.date }}</p>
+        <p class="photo-count">{{ chantier()!.photos.length }} photo{{ chantier()!.photos.length > 1 ? 's' : '' }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-gallery">
+    <div class="gallery-grid">
+      <div
+        class="gallery-item"
+        *ngFor="let photo of chantier()!.photos; let i = index"
+        (click)="openLightbox(i)"
+      >
+        <img [src]="photo.src" [alt]="photo.alt" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="zoom-icon">&#9906;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notFound>
+  <div class="not-found">
+    <h2>Chantier introuvable</h2>
+    <button class="back-btn" (click)="goBack()">Retour au portfolio</button>
+  </div>
+</ng-template>
+
+<div class="lightbox" *ngIf="lightboxIndex() !== null" (click)="closeLightbox()">
+  <button class="lightbox-close" (click)="closeLightbox()">&#10005;</button>
+  <button class="lightbox-prev" (click)="$event.stopPropagation(); prevPhoto()">&#10094;</button>
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <img
+      [src]="chantier()!.photos[lightboxIndex()!].src"
+      [alt]="chantier()!.photos[lightboxIndex()!].alt"
+    >
+    <p class="lightbox-counter">{{ lightboxIndex()! + 1 }} / {{ chantier()!.photos.length }}</p>
+  </div>
+  <button class="lightbox-next" (click)="$event.stopPropagation(); nextPhoto()">&#10095;</button>
+</div>

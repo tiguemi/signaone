@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { CHANTIERS, Chantier } from './portfolio-data';
+import { CHANTIERS, Chantier } from '../../components/portfolio/portfolio-data';
 
 @Component({
-  selector: 'app-portfolio',
+  selector: 'app-realisations',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.scss']
+  templateUrl: './realisations.component.html',
+  styleUrls: ['./realisations.component.scss']
 })
-export class PortfolioComponent {
+export class RealisationsComponent {
   chantiers: Chantier[] = CHANTIERS;
 
   constructor(private router: Router) {}

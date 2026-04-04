@@ -1,0 +1,30 @@
+<div class="realisations-page">
+  <div class="page-header">
+    <div class="header-inner">
+      <span class="section-tag">Nos réalisations</span>
+      <h1 class="page-title">Portfolio</h1>
+      <p class="page-subtitle">Découvrez nos chantiers et laissez-vous inspirer par notre savoir-faire</p>
+    </div>
+  </div>
+
+  <div class="chantiers-grid-wrapper">
+    <div class="chantiers-grid">
+      <div
+        class="chantier-card"
+        *ngFor="let chantier of chantiers"
+        (click)="openChantier(chantier.slug)"
+      >
+        <div class="card-image">
+          <img [src]="chantier.cover" [alt]="chantier.title" loading="lazy">
+          <div class="card-overlay">
+            <span class="overlay-cta">Voir les photos</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">{{ chantier.title }}</h2>
+          <p class="card-meta">{{ chantier.date }} &middot; {{ chantier.photos.length }} photo{{ chantier.photos.length > 1 ? 's' : '' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
