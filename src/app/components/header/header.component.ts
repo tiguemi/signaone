@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isMenuOpen = false;
   activeSection = 'accueil';
 
-  private sections = ['accueil', 'enseigne', 'signaletique', 'devis', 'contact'];
   private sections = ['accueil', 'enseigne', 'signaletique', 'realisations', 'devis', 'contact'];
 
   ngOnInit() {

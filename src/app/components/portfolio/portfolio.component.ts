@@ -221,4 +221,8 @@ export class PortfolioComponent {
   selectCategory(categoryId: string) {
     this.selectedCategory.set(categoryId);
   }
+
+  trackByFn(index: number, item: PortfolioItem): string {
+    return item.id;
+  }
 }
