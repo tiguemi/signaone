@@ -7,19 +7,18 @@
     </div>
 
     <div class="filter-tabs">
-      <button 
+      <button
         *ngFor="let category of categories"
         class="filter-btn"
         [class.active]="selectedCategory() === category.id"
         (click)="selectCategory(category.id)"
       >
-        <span class="filter-icon">{{ category.icon }}</span>
         {{ category.name }}
       </button>
     </div>
 
     <div class="portfolio-grid">
-      <div 
+      <div
         class="portfolio-item"
         *ngFor="let item of filteredItems(); trackBy: trackByFn"
         [attr.data-category]="item.category"
@@ -30,7 +29,6 @@
             <div class="portfolio-content">
               <h3 class="portfolio-title">{{ item.title }}</h3>
               <p class="portfolio-description">{{ item.description }}</p>
-              <button class="view-btn">Voir le projet</button>
             </div>
           </div>
         </div>
@@ -40,7 +38,7 @@
     <div class="portfolio-stats">
       <div class="stat-item">
         <div class="stat-number">{{ portfolioItems.length }}+</div>
-        <div class="stat-label">Projets réalisés</div>
+        <div class="stat-label">Photos de réalisations</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">100%</div>
