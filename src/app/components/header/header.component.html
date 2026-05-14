@@ -6,22 +6,12 @@
       </a>
 
       <nav class="nav" [class.active]="isMenuOpen">
-        <ng-container *ngIf="isHome; else internalNav">
-          <a href="#accueil" class="nav-link" [class.active]="activeSection === 'accueil'" (click)="navigateTo('accueil')">Accueil</a>
-          <a href="#enseigne" class="nav-link" [class.active]="activeSection === 'enseigne'" (click)="navigateTo('enseigne')">Enseigne</a>
-          <a href="#signaletique" class="nav-link" [class.active]="activeSection === 'signaletique'" (click)="navigateTo('signaletique')">Signalétique</a>
-          <a href="#realisations" class="nav-link" [class.active]="activeSection === 'realisations'" (click)="navigateTo('realisations')">Réalisations</a>
-          <a href="#devis" class="nav-link" [class.active]="activeSection === 'devis'" (click)="navigateTo('devis')">Devis</a>
-          <a href="#contact" class="nav-link" [class.active]="activeSection === 'contact'" (click)="navigateTo('contact')">Contact</a>
-        </ng-container>
-        <ng-template #internalNav>
-          <a class="nav-link" (click)="goHome()" style="cursor:pointer">Accueil</a>
-          <a routerLink="/" fragment="enseigne" class="nav-link" (click)="closeMenu()">Enseigne</a>
-          <a routerLink="/" fragment="signaletique" class="nav-link" (click)="closeMenu()">Signalétique</a>
-          <a routerLink="/realisations" class="nav-link" routerLinkActive="active" (click)="closeMenu()">Réalisations</a>
-          <a routerLink="/" fragment="devis" class="nav-link" (click)="closeMenu()">Devis</a>
-          <a routerLink="/" fragment="contact" class="nav-link" (click)="closeMenu()">Contact</a>
-        </ng-template>
+        <a class="nav-link" [class.active]="isHome && activeSection === 'accueil'" (click)="navigateToSection('accueil')">Accueil</a>
+        <a class="nav-link" [class.active]="isHome && activeSection === 'enseigne'" (click)="navigateToSection('enseigne')">Enseigne</a>
+        <a class="nav-link" [class.active]="isHome && activeSection === 'signaletique'" (click)="navigateToSection('signaletique')">Signalétique</a>
+        <a class="nav-link" [class.active]="isHome && activeSection === 'realisations'" (click)="navigateToSection('realisations')">Réalisations</a>
+        <a class="nav-link" [class.active]="isHome && activeSection === 'devis'" (click)="navigateToSection('devis')">Devis</a>
+        <a class="nav-link" [class.active]="isHome && activeSection === 'contact'" (click)="navigateToSection('contact')">Contact</a>
       </nav>
 
       <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">

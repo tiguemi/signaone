@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.isHome = this.router.url === '/';
     this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe((e: any) => {
-      this.isHome = e.urlAfterRedirects === '/';
+      this.isHome = e.urlAfterRedirects === '/' || e.urlAfterRedirects.startsWith('/#');
       this.closeMenu();
     });
     this.updateActiveSection();
@@ -39,6 +39,29 @@ export class HeaderComponent implements OnInit {
   navigateTo(section: string) {
     this.activeSection = section;
     this.closeMenu();
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  navigateToSection(section: string) {
+    this.closeMenu();
+    if (this.isHome) {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => {
+          const el = document.getElementById(section);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 300);
+      });
+    }
   }
 
   goHome() {
@@ -48,7 +71,9 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll')
   onScroll() {
-    this.updateActiveSection();
+    if (this.isHome) {
+      this.updateActiveSection();
+    }
   }
 
   private updateActiveSection() {
